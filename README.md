@@ -10,6 +10,8 @@ Obs.: O arquivo de Readme, bem como todo o projeto, será constantemente atualiz
 ```bash
     Ruby 3.0.0
     Rails 7.0.3
+    Rspec
+    Capybara
     Bootstrap 5.1.3
 ```
 

@@ -3,3 +3,6 @@
 
 // site
 //= link site/styles.css
+
+// app
+//= link app/styles.css
