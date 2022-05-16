@@ -1,0 +1,8 @@
+pt-BR:
+  activerecord:
+    models:
+      admin: "Admin"
+    attributes:
+      admin:
+        firstname: "Primeiro nome"
+        lastname: "Sobrenome"

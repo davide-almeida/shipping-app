@@ -27,7 +27,7 @@ describe "Admin visits the login page" do
     # Assert
     expect(current_path).to eq app_root_path
     expect(page).not_to have_button "Entrar"
-    expect(page).to have_content "Signed in successfully."
+    expect(page).to have_content "Login efetuado com sucesso."
     expect(page).to have_content "davide@davide.com"
     expect(page).to have_button "Sair"
   end
@@ -46,7 +46,7 @@ describe "Admin visits the login page" do
 
     # Assert
     expect(current_path).to eq new_admin_session_path
-    expect(page).to have_content "Invalid Email or password."
+    expect(page).to have_content "Email ou senha inválidos."
     expect(page).to have_button "Entrar"
   end
 
@@ -65,7 +65,7 @@ describe "Admin visits the login page" do
 
     # Assert
     expect(current_path).to eq root_path
-    expect(page).to have_content "Signed out successfully."
+    expect(page).to have_content "Logout efetuado com sucesso."
     expect(page).not_to have_button "Entrar"
     expect(page).not_to have_button "Sair"
   end
