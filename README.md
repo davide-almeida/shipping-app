@@ -10,11 +10,12 @@ Obs.: O arquivo de Readme, bem como todo o projeto, será constantemente atualiz
 ```bash
     Ruby 3.0.0
     Rails 7.0.3
+    Bootstrap 5.1.3
 ```
 
 ## Layouts
 
 ```bash
-    Stylish Portfolio - Utilizado no site - [Link](https://startbootstrap.com/theme/stylish-portfolio)
-    SB Admin - Utilizado na aplicação - [Link](https://startbootstrap.com/template/sb-admin)
+    Stylish Portfolio - Utilizado no site - https://startbootstrap.com/theme/stylish-portfolio
+    SB Admin - Utilizado na aplicação - https://startbootstrap.com/template/sb-admin
 ```
