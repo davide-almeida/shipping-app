@@ -7,6 +7,9 @@ describe "User visits the site" do
         visit root_path
 
         # Assert
-        expect(page).to have_content "Boas vindas a página inicial do site do Shipping-app!"
+        expect(page).to have_content "Shipping App"
+        expect(page).to have_link "Acesso Transportadora"
+        expect(page).to have_link "Rastreio"
+        expect(page).to have_link "Acesso Admin"
     end
 end
