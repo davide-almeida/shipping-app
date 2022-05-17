@@ -1,0 +1,39 @@
+<h1 class="mt-4 mb-4">Transportadoras</h1>
+<% if @shipping_companies.empty? %>
+    <p><font color="red">Não existem transportadoras cadastradas</font></p>
+<% end %>
+<div class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Cadastrar Transportadora", new_app_shipping_company_path, class:"btn btn-primary" %></li>
+</div>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Lista transportadoras
+    </div>
+    <div class="card-body">
+        <table id="datatable" class="table table-bordered" style="">
+            <thead>
+            <tr>
+                <th>Razão Social</th>
+                <th>Nome Fantasia</th>
+                <th>Domínio</th>
+                <th>CNPJ</th>
+                <th>Endereço</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @shipping_companies.each do |shipping_company| %>
+                <tr>
+                    <td><%= link_to shipping_company.corporate_name, app_shipping_company_path(shipping_company) %></td>
+                    <td><%= shipping_company.brand_name %></td>
+                    <td><%= shipping_company.domain %></td>
+                    <td><%= shipping_company.registration_number %></td>
+                    <td><%= shipping_company.full_address %></td>
+                    <td><%= shipping_company.status %></td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

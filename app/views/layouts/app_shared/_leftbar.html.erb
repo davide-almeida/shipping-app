@@ -4,8 +4,12 @@
             <div class="nav">
                 <div class="sb-sidenav-menu-heading">Dashboard</div>
                 <%= link_to app_root_path, class:"nav-link" do %>
-                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
+                <% end %>
+                <%= link_to app_shipping_companies_path, class:"nav-link" do %>
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    Transportadoras
                 <% end %>
             </div>
         </div>

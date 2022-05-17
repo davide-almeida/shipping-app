@@ -11699,3 +11699,12 @@ body {
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
 }
+
+/* Custom CSS */
+.button-form-group {
+  display: flex;
+}
+
+.button-form-item {
+  padding-right: 0.5%;
+}

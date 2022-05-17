@@ -1,0 +1,25 @@
+<h1 class="mt-4 mb-4">Transportadora - <%= @shipping_company.brand_name %></h1>
+
+<div class="card">
+  <div class="card-header">
+    <h2><%= @shipping_company.corporate_name %></h2>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><strong>Nome fantasia: </strong><%= @shipping_company.brand_name %></li>
+    <li class="list-group-item"><strong>Domínio: </strong><%= @shipping_company.domain %></li>
+    <li class="list-group-item"><strong>CNPJ: </strong><%= @shipping_company.registration_number %></li>
+    <li class="list-group-item"><strong>Endereço: </strong><%= @shipping_company.full_address %></li>
+    <li class="list-group-item"><strong>Status: </strong><%= @shipping_company.status %></li>
+  </ul>
+</div>
+
+<div class="mt-4 mb-4">
+  <div class="button-form-group">
+    <div class="button-form-item">
+      <%= link_to 'Editar', edit_app_shipping_company_path(@shipping_company.id), class:"btn btn-primary" %>
+    </div>
+    <div class="button-form-item">
+      <%= link_to 'Voltar', app_shipping_companies_path, class:"btn btn-secondary" %>
+    </div>
+  </div>
+</div>

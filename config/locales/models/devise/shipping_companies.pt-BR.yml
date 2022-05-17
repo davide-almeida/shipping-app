@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      shipping_company: "Transportadora"
+    attributes:
+      shipping_company:
+        brand_name: "Nome fantasia"
+        corporate_name: "Razão social"
+        domain: "Domínio"
+        registration_number: "CNPJ"
+        full_address: "Endereço"
+        status: "Status"
