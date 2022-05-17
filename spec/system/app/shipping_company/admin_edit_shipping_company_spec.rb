@@ -7,7 +7,8 @@ describe "Admin update a shipping company" do
         ShippingCompany.create!(brand_name: "ACME LTDA", corporate_name: "ACME", domain: "acme@acme.com", registration_number: "xx.xxx.xxx/xxxx-xx", full_address: "123123", status: "Inativo")
 
         # Act
-        login_as(@new_admin)
+        login_as(@new_admin, :scope => :admin)
+
         visit app_root_path
         click_on "Transportadoras"
         click_on "ACME"
@@ -28,7 +29,7 @@ describe "Admin update a shipping company" do
         ShippingCompany.create!(brand_name: "ACME LTDA", corporate_name: "ACME", domain: "acme@acme.com", registration_number: "xx.xxx.xxx/xxxx-xx", full_address: "123123", status: "Ativo")
 
         # Act
-        login_as(@new_admin)
+        login_as(@new_admin, :scope => :admin)
         visit app_root_path
         click_on "Transportadoras"
         click_on "ACME"
@@ -55,7 +56,7 @@ describe "Admin update a shipping company" do
         ShippingCompany.create!(brand_name: "ACME LTDA", corporate_name: "ACME", domain: "acme@acme.com", registration_number: "xx.xxx.xxx/xxxx-xx", full_address: "123123", status: "Ativo")
 
         # Act
-        login_as(@new_admin)
+        login_as(@new_admin, :scope => :admin)
         visit app_root_path
         click_on "Transportadoras"
         click_on "ACME"
@@ -76,7 +77,7 @@ describe "Admin update a shipping company" do
         ShippingCompany.create!(brand_name: "ACME LTDA", corporate_name: "ACME", domain: "acme@acme.com", registration_number: "xx.xxx.xxx/xxxx-xx", full_address: "123123", status: "Ativo")
 
         # Act
-        login_as(@new_admin)
+        login_as(@new_admin, :scope => :admin)
         visit app_root_path
         click_on "Transportadoras"
         click_on "ACME"
@@ -98,7 +99,7 @@ describe "Admin update a shipping company" do
         ShippingCompany.create!(brand_name: "ACME LTDA", corporate_name: "TESTE", domain: "acme@acme.com", registration_number: "xx.xxx.xxx/xxxx123", full_address: "123123", status: "Ativo")
 
         # Act
-        login_as(@new_admin)
+        login_as(@new_admin, :scope => :admin)
         visit app_root_path
         click_on "Transportadoras"
         click_on "ACME"

@@ -8,7 +8,7 @@ describe "Admin access shipping_company" do
             ShippingCompany.create!(brand_name: "Empresa Teste", corporate_name: "Testee", domain: "empresateste@teste.com", registration_number: "00.000.000/0000-00", full_address: "Endereço teste", status: "Inativo")
 
             # Act
-            login_as(@new_admin)
+            login_as(@new_admin, :scope => :admin)
             visit app_root_path
             click_on "Transportadoras"
 
@@ -26,7 +26,7 @@ describe "Admin access shipping_company" do
             create_new_admin
 
             # Act
-            login_as(@new_admin)
+            login_as(@new_admin, :scope => :admin)
             visit app_root_path
             click_on "Transportadoras"
 
@@ -41,7 +41,7 @@ describe "Admin access shipping_company" do
             shipping_company = ShippingCompany.create!(brand_name: "Empresa Teste", corporate_name: "Testee", domain: "empresateste@teste.com", registration_number: "00.000.000/0000-00", full_address: "Endereço teste", status: "Ativo")
 
             # Act
-            login_as(@new_admin)
+            login_as(@new_admin, :scope => :admin)
             visit app_root_path
             click_on "Transportadoras"
             click_on "Testee"

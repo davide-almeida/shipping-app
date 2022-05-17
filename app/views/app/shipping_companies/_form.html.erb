@@ -36,7 +36,6 @@
             </div>
             <div class="mb-3">
                 <%= f.label :status, class:"form-label" %>
-                <%#= f.collection_select(:supplier_id, @status_options_for_select, :id, :brand_name, {include_blank: false}, {class:"form-select"}) %>
                 <%= f.select(:status, options_for_shipping_company_status(@shipping_company.status), {:selected => "Ativo"}, {:class =>"form-select", include_blank: false})%>
             </div>
             <div class="mb-3">

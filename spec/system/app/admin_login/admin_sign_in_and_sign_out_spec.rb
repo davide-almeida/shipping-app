@@ -20,8 +20,8 @@ describe "Admin visits the login page" do
     visit root_path
     click_on "Acesso Admin"
 
-    fill_in "Email",	with: "davide@davide.com"
-    fill_in "Password",	with: "123123"
+    fill_in "E-mail",	with: "davide@davide.com"
+    fill_in "Senha",	with: "123123"
     click_on "Entrar"
 
     # Assert
@@ -40,13 +40,13 @@ describe "Admin visits the login page" do
     visit root_path
     click_on "Acesso Admin"
 
-    fill_in "Email",	with: "davide@davide.com"
-    fill_in "Password",	with: "asdasd"
+    fill_in "E-mail",	with: "davide@davide.com"
+    fill_in "Senha",	with: "asdasd"
     click_on "Entrar"
 
     # Assert
     expect(current_path).to eq new_admin_session_path
-    expect(page).to have_content "Email ou senha inválidos."
+    expect(page).to have_content "E-mail ou senha inválidos."
     expect(page).to have_button "Entrar"
   end
 
@@ -58,8 +58,8 @@ describe "Admin visits the login page" do
     visit root_path
     click_on "Acesso Admin"
 
-    fill_in "Email",	with: "davide@davide.com"
-    fill_in "Password",	with: "123123"
+    fill_in "E-mail",	with: "davide@davide.com"
+    fill_in "Senha",	with: "123123"
     click_on "Entrar"
     click_on "Sair"
 
