@@ -1,0 +1,42 @@
+<% if @user.errors.any? %>
+    <p>Verifique os erros abaixo:</p>
+    <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Formulário
+    </div>
+    <div class="card-body">
+        <%= form_with(model: [:app, @user]) do |f| %>
+            <div class="mb-3">
+                <%= f.label :firstname, class:"form-label" %>
+                <%= f.text_field :firstname, class:"form-control" %>
+            </div>
+            <div class="mb-3">
+                <%= f.label :lastname, class:"form-label" %>
+                <%= f.text_field :lastname, class:"form-control" %>
+            </div>
+            <div class="mb-3">
+                <%= f.label :email, class:"form-label" %>
+                <%= f.email_field :email, class:"form-control" %>
+            </div>
+            <div class="mb-3">
+                <%= f.label :password, class:"form-label" %>
+                <%= f.password_field :password, class:"form-control" %>
+            </div>
+            <div class="mb-3">
+                <%= f.label :password_confirmation, class:"form-label" %>
+                <%= f.password_field :password_confirmation, class:"form-control" %>
+            </div>
+            <div class="mb-3">
+                <%= f.submit 'Cadastrar', disable_with: 'Cadastrando...', class:"btn btn-primary" %>
+            </div>
+        <% end %>
+    </div>
+</div>

@@ -10,6 +10,7 @@
     <li class="list-group-item"><strong>CNPJ: </strong><%= @shipping_company.registration_number %></li>
     <li class="list-group-item"><strong>Endereço: </strong><%= @shipping_company.full_address %></li>
     <li class="list-group-item"><strong>Status: </strong><%= @shipping_company.status %></li>
+    <li class="list-group-item"><strong>Colaboradores cadastrados: </strong><%= @shipping_company.users.count %></li>
   </ul>
 </div>
 

@@ -4,7 +4,16 @@ pt-BR:
       user: "Usuário"
     attributes:
       user:
-        firstname: "Primeiro nome"
+        firstname: "Nome"
         lastname: "Sobrenome"
         email: "E-mail"
         password: "Senha"
+        password_confirmation: "Confirmar senha"
+        shipping_company_id: "Transportadora"
+        shipping_company: "Transportadora"
+    errors:
+      models:
+        user:
+          attributes:
+            shipping_company:
+              required: "inexistente."

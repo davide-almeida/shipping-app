@@ -54,6 +54,7 @@ describe "Admin access shipping_company" do
             expect(page).to have_content "CNPJ: 00.000.000/0000-00"
             expect(page).to have_content "Endereço: Endereço teste"
             expect(page).to have_content "Status: Ativo"
+            expect(page).to have_content "Colaboradores cadastrados: 0"
         end
     end
 

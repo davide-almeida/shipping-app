@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :app do
     root to: "dashboard#index"
     resources :shipping_companies, only: [:index, :new, :create, :show, :edit, :update]
+    resources :users, only: [:index, :new, :create, :show, :edit, :update]
   end
 
   namespace :shipping_company do

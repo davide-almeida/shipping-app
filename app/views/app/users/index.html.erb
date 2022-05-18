@@ -1,0 +1,35 @@
+<h1 class="mt-4 mb-4">Colaboradores</h1>
+<% if @users.empty? %>
+    <p><font color="red">Não existem colaboradores cadastrados.</font></p>
+<% end %>
+<div class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Cadastrar Colaborador", new_app_user_path, class:"btn btn-primary" %></li>
+</div>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Lista colaboradores
+    </div>
+    <div class="card-body">
+        <table id="datatable" class="table table-bordered" style="">
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>E-mail</th>
+                <th>Transportadora</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @users.each do |user| %>
+                <tr>
+                    <td><%= link_to user.firstname, app_user_path(user) %></td>
+                    <td><%= user.lastname %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.shipping_company.brand_name %></td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
