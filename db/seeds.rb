@@ -8,7 +8,7 @@
 
 puts "-----------------------------------------"
 puts "Cadastrando ADMINS..."
-Admin.create!(firstname: "Davide", lastname: "Almeida", email: "davide@davide.com", password: "123123", password_confirmation: "123123")
+Admin.create!(firstname: "Davide", lastname: "Almeida", email: "davide@sistemadefrete.com.br", password: "123123", password_confirmation: "123123")
 puts "ADMINS cadastrados!"
 puts "-----------------------------------------"
 puts "Cadastrando USERS..."

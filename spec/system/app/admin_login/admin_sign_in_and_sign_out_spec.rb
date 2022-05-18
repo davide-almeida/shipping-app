@@ -14,13 +14,13 @@ describe "Admin visits the login page" do
 
   it "and sign in" do
     # Arrange
-    Admin.create!(firstname: "Davide", lastname: "Almeida", email: "davide@davide.com", password: "123123", password_confirmation: "123123")
+    Admin.create!(firstname: "Davide", lastname: "Almeida", email: "davide@sistemadefrete.com.br", password: "123123", password_confirmation: "123123")
 
     # Act
     visit root_path
     click_on "Acesso Admin"
 
-    fill_in "E-mail",	with: "davide@davide.com"
+    fill_in "E-mail",	with: "davide@sistemadefrete.com.br"
     fill_in "Senha",	with: "123123"
     click_on "Entrar"
 
@@ -28,19 +28,19 @@ describe "Admin visits the login page" do
     expect(current_path).to eq app_root_path
     expect(page).not_to have_button "Entrar"
     expect(page).to have_content "Login efetuado com sucesso."
-    expect(page).to have_content "davide@davide.com"
+    expect(page).to have_content "davide@sistemadefrete.com.br"
     expect(page).to have_button "Sair"
   end
 
   it "and try sign in with wrong parameters" do
     # Arrange
-    Admin.create!(firstname: "Davide", lastname: "Almeida", email: "davide@davide.com", password: "123123", password_confirmation: "123123")
+    Admin.create!(firstname: "Davide", lastname: "Almeida", email: "davide@sistemadefrete.com.br", password: "123123", password_confirmation: "123123")
 
     # Act
     visit root_path
     click_on "Acesso Admin"
 
-    fill_in "E-mail",	with: "davide@davide.com"
+    fill_in "E-mail",	with: "davide@sistemadefrete.com.br"
     fill_in "Senha",	with: "asdasd"
     click_on "Entrar"
 
@@ -52,13 +52,13 @@ describe "Admin visits the login page" do
 
   it "sign in and sign out" do
     # Arrange
-    Admin.create!(firstname: "Davide", lastname: "Almeida", email: "davide@davide.com", password: "123123", password_confirmation: "123123")
+    Admin.create!(firstname: "Davide", lastname: "Almeida", email: "davide@sistemadefrete.com.br", password: "123123", password_confirmation: "123123")
 
     # Act
     visit root_path
     click_on "Acesso Admin"
 
-    fill_in "E-mail",	with: "davide@davide.com"
+    fill_in "E-mail",	with: "davide@sistemadefrete.com.br"
     fill_in "Senha",	with: "123123"
     click_on "Entrar"
     click_on "Sair"
