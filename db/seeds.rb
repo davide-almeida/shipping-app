@@ -19,3 +19,8 @@ puts "Cadastrando USERS..."
 User.create!(firstname: "User", lastname: "Transportadora", email: "transportadora@acme.com", password: "123123", password_confirmation: "123123", shipping_company_id: 1)
 puts "USERS cadastrados!"
 puts "-----------------------------------------"
+puts "Cadastrando CARRIERS..."
+Carrier.create!(license_plate: "MKE-0945", brand: "Mercedes", code_model: "TRUCK-MERC-10", manufact_year: 2020, weight: 5000, shipping_company_id: 1)
+Carrier.create!(license_plate: "XPL-1515", brand: "Volkswagen", code_model: "TRUCK-WOLK-31", manufact_year: 2021, weight: 4000, shipping_company_id: 1)
+puts "CARRIERS cadastrados!"
+puts "-----------------------------------------"

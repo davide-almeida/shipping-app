@@ -1,0 +1,37 @@
+<h1 class="mt-4 mb-4">Veículos</h1>
+<% if @carriers.empty? %>
+    <p><font color="red">Não existem veículos cadastrados</font></p>
+<% end %>
+<div class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Cadastrar Veículo", new_shipping_company_carrier_path, class:"btn btn-primary" %></li>
+</div>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Lista veículos
+    </div>
+    <div class="card-body">
+        <table id="datatable" class="table table-bordered" style="">
+            <thead>
+            <tr>
+                <th>Placa</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Ano fabricação</th>
+                <th>Peso máximo</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @carriers.each do |carrier| %>
+                <tr>
+                    <td><%= link_to shipping_company.license_plate, shipping_company_carrier_path(carrier) %></td>
+                    <td><%= shipping_company.brand %></td>
+                    <td><%= shipping_company.code_model %></td>
+                    <td><%= shipping_company.manufact_year %></td>
+                    <td><%= shipping_company.weight %></td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

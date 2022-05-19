@@ -5,4 +5,5 @@ class ShippingCompany < ApplicationRecord
     enum status: ["Ativo", "Inativo"]
 
     has_many :users
+    has_many :carriers
 end
