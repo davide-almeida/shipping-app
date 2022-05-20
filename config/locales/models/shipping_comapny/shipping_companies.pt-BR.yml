@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      carrier: "Veículos"
+    attributes:
+      carrier:
+        license_plate: "Placa de identificação"
+        brand: "Marca"
+        code_model: "Modelo"
+        manufact_year: "Ano de fabricação"
+        weight: "Peso (gramas)"
+        shipping_company: "Transportadora"

@@ -1,0 +1,25 @@
+<h1 class="mt-4 mb-4">Veículo - <%= @carrier.license_plate %></h1>
+
+<div class="card">
+  <div class="card-header">
+    <h2><%= @carrier.brand %></h2>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><strong>Placa: </strong><%= @carrier.license_plate %></li>
+    <li class="list-group-item"><strong>Marca: </strong><%= @carrier.brand %></li>
+    <li class="list-group-item"><strong>Modelo: </strong><%= @carrier.code_model %></li>
+    <li class="list-group-item"><strong>Ano de fabricação: </strong><%= @carrier.manufact_year %></li>
+    <li class="list-group-item"><strong>Capacidade peso: </strong><%= @carrier.weight/1000.0 %>kg</li>
+  </ul>
+</div>
+
+<div class="mt-4 mb-4">
+  <div class="button-form-group">
+    <div class="button-form-item">
+      <%= link_to 'Editar', edit_shipping_company_carrier_path(@carrier.id), class:"btn btn-primary" %>
+    </div>
+    <div class="button-form-item">
+      <%= link_to 'Voltar', shipping_company_carriers_path, class:"btn btn-secondary" %>
+    </div>
+  </div>
+</div>

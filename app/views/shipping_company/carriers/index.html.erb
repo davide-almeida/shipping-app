@@ -24,11 +24,11 @@
             <tbody>
             <% @carriers.each do |carrier| %>
                 <tr>
-                    <td><%= link_to shipping_company.license_plate, shipping_company_carrier_path(carrier.id) %></td>
-                    <td><%= shipping_company.brand %></td>
-                    <td><%= shipping_company.code_model %></td>
-                    <td><%= shipping_company.manufact_year %></td>
-                    <td><%= shipping_company.weight %></td>
+                    <td><%= link_to carrier.license_plate, shipping_company_carrier_path(carrier.id) %></td>
+                    <td><%= carrier.brand %></td>
+                    <td><%= carrier.code_model %></td>
+                    <td><%= carrier.manufact_year %></td>
+                    <td><%= carrier.weight/1000.0 %>kg</td>
                 </tr>
             <% end %>
             </tbody>
