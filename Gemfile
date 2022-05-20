@@ -25,6 +25,8 @@ gem "cssbundling-rails"
 gem "jsbundling-rails"
 # Devise - https://github.com/heartcombo/devise
 gem "devise"
+# MoneyRails - https://github.com/RubyMoney/money-rails
+gem 'money-rails'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

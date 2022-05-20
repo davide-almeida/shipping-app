@@ -97,5 +97,4 @@ describe "User register a new carrier" do
             expect(page).to have_content "Modelo deve possuir no mínimo 6 caracteres."
         end
     end
-    
 end
