@@ -24,7 +24,7 @@
             <tbody>
             <% @carriers.each do |carrier| %>
                 <tr>
-                    <td><%= link_to shipping_company.license_plate, shipping_company_carrier_path(carrier) %></td>
+                    <td><%= link_to shipping_company.license_plate, shipping_company_carrier_path(carrier.id) %></td>
                     <td><%= shipping_company.brand %></td>
                     <td><%= shipping_company.code_model %></td>
                     <td><%= shipping_company.manufact_year %></td>

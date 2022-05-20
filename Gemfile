@@ -38,5 +38,10 @@ end
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # Custom gems
+  # better errors - https://github.com/BetterErrors/better_errors
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
