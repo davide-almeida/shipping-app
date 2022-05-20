@@ -1,29 +1,46 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+<div id="layoutAuthentication_content">
+    <main>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                    <div class="card shadow-lg border-0 rounded-lg mt-5">
+                        <div class="card-header"><h3 class="text-center font-weight-light my-4">Transportadora - Criar conta</h3></div>
+                        <div class="card-body">
+                            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                                <div class="form-floating mb-3">
+                                    <%= f.text_field :firstname, autocomplete: "nome", class:"form-control", placeholder:"name@example.com" %>
+                                    <%= f.label :firstname %>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <%= f.text_field :lastname, autocomplete: "sobrenome", class:"form-control", placeholder:"name@example.com" %>
+                                    <%= f.label :lastname %>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <%= f.email_field :email, autocomplete: "email", class:"form-control", placeholder:"name@example.com" %>
+                                    <%= f.label :email %>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <%= f.password_field :password, autocomplete: "current-password", class:"form-control", placeholder:"password" %>
+                                    <%= f.label :password %>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <%= f.password_field :password_confirmation, autocomplete: "current-password", class:"form-control", placeholder:"password" %>
+                                    <%= f.label :password_confirmation %>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                    <div class="small">
+                                      <%= render "users/shared/links" %>
+                                    </div>
+                                    <%= f.submit "Cadastrar", class:"btn btn-primary" %>
+                                </div>
+                            <% end %>
+                        </div>
+                        <div class="card-footer text-center py-3">
+                            <div class="small"> <%= link_to "Voltar", root_path %> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

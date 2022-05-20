@@ -3,11 +3,12 @@ class User < ApplicationRecord
   
   # Validate email and merge User with ShippingCompany before validates.
   before_validation :user_and_shipping_company_merge
+  validates :firstname, :lastname, presence: true
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :rememberable, :validatable
 
 
   # Validate email
