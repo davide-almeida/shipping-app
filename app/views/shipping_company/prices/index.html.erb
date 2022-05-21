@@ -3,7 +3,12 @@
     <p><font color="red">Não existem preços cadastrados</font></p>
 <% end %>
 <div class="breadcrumb">
-    <li class="breadcrumb-item"><%= link_to "Cadastrar Preço", new_shipping_company_price_path, class:"btn btn-primary" %></li>
+    <li class="buttons-item"><%= link_to "Cadastrar Preço", new_shipping_company_price_path, class:"btn btn-primary" %></li>
+    <% if @price_settings.nil? %>
+        <li class="buttons-item"><%= link_to "Configuração de Preço", new_shipping_company_price_setting_path, class:"btn btn-info" %></li>
+    <% else %>
+        <li class="buttons-item"><%= link_to "Configuração de Preço", edit_shipping_company_price_setting_path(@price_settings.id), class:"btn btn-info" %></li>
+    <% end %>
 </div>
 <div class="card mb-4">
     <div class="card-header">
@@ -34,4 +39,18 @@
             </tbody>
         </table>
     </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <i class="fas fa-gear me-1"></i>
+    Configurações de preços
+  </div>
+  <ul class="list-group list-group-flush">
+    <% if @price_settings.nil? %>
+        <li class="list-group-item"> Não há configurações de preços cadastradas. </li>
+    <% else %>
+        <li class="list-group-item"><strong>Valor mínimo de cobrança: </strong><%= humanized_money_with_symbol @price_settings.value_min_cents/100.to_f %></li>
+    <% end %>
+  </ul>
 </div>

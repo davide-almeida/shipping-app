@@ -13,5 +13,6 @@ Rails.application.routes.draw do
     root to: "dashboard#index"
     resources :carriers, only: [:index, :new, :create, :show, :edit, :update]
     resources :prices, only: [:index, :new, :create, :show, :edit, :update]
+    resources :price_settings, only: [:index, :new, :create, :edit, :update]
   end
 end

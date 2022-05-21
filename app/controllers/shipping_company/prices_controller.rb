@@ -3,6 +3,7 @@ class ShippingCompany::PricesController < ShippingCompanyController
 
     def index
         @prices = ShippingCompany.find_by(domain: current_user.email.split("@").last).prices.all
+        @price_settings = current_user.shipping_company.price_setting
     end
 
     def new

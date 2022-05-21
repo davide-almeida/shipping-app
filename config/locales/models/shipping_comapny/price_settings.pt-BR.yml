@@ -1,0 +1,8 @@
+pt-BR:
+  activerecord:
+    models:
+      price_setting: "Configuração de preços"
+    attributes:
+      price_setting:
+        value_min: "Valor mínimo de cobrança (R$)"
+        shipping_company_id: "Transportadora"

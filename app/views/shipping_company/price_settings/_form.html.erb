@@ -1,0 +1,26 @@
+<% if @price_setting.errors.any? %>
+    <p>Verifique os erros abaixo:</p>
+    <ul>
+        <% @price_setting.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Formulário
+    </div>
+    <div class="card-body">
+        <%= form_with(model: [:shipping_company, @price_setting]) do |f| %>
+            <div class="mb-3">
+                <%= f.label :value_min, class:"form-label" %>
+                <%= f.text_field :value_min, class:"form-control", placeholder:"Ex.: 350,25" %>
+            </div>
+            <div class="mb-3">
+                <%= f.submit 'Cadastrar', disable_with: 'Cadastrando...', class:"btn btn-primary" %>
+            </div>
+        <% end %>
+    </div>
+</div>

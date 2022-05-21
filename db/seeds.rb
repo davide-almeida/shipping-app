@@ -31,3 +31,7 @@ Price.create!(cubic_start: 0.001, cubic_end: 0.500, weight_start: 30000, weight_
 Price.create!(cubic_start: 0.501, cubic_end: 1.000, weight_start: 0, weight_end: 10000, value_kilometer_cents: 75, shipping_company_id: 1)
 puts "PRICES cadastrados!"
 puts "-----------------------------------------"
+puts "Cadastrando PRICE_SETTINGS..."
+PriceSetting.create!(value_min_cents: 5000, shipping_company_id: 1)
+puts "PRICE_SETTINGS cadastrados!"
+puts "-----------------------------------------"
