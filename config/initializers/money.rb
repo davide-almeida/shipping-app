@@ -6,6 +6,7 @@ MoneyRails.configure do |config|
   #
   # config.default_currency = :usd
   config.default_currency = :brl
+  # config.default_currency = :currency
 
   # Set default bank object
   #
@@ -59,6 +60,19 @@ MoneyRails.configure do |config|
   #   decimal_mark:        ","
   # }
 
+  # testing...
+  # config.register_currency = {
+  #   priority:            1,
+  #   iso_code:            "BRL",
+  #   name:                "Real Brasileiro",
+  #   symbol:              "R$",
+  #   symbol_first:        true,
+  #   subunit:             "Subcent",
+  #   subunit_to_unit:     00,
+  #   thousands_separator: ".",
+  #   decimal_mark:        ","
+  # }
+
   # Specify a rounding mode
   # Any one of:
   #
@@ -87,7 +101,7 @@ MoneyRails.configure do |config|
 
   # If you would like to use I18n localization (formatting depends on the
   # locale):
-  # config.locale_backend = :i18n
+  config.locale_backend = :i18n
   #
   # Example (using default localization from rails-i18n):
   #
@@ -95,6 +109,8 @@ MoneyRails.configure do |config|
   # Money.new(10_000_00, 'USD').format # => $10,000.00
   # I18n.locale = :es
   # Money.new(10_000_00, 'USD').format # => $10.000,00
+  # I18n.locale = :"pt-BR"
+  # Money.new(10_000_00, 'BRL').format # => $10.000,00
   #
   # For the legacy behaviour of "per currency" localization (formatting depends
   # only on currency):

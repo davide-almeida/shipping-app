@@ -24,3 +24,10 @@ Carrier.create!(license_plate: "MKE-0945", brand: "Mercedes", code_model: "TRUCK
 Carrier.create!(license_plate: "XPL-1515", brand: "Volkswagen", code_model: "TRUCK-WOLK-31", manufact_year: 2021, weight: 4000, shipping_company_id: 1)
 puts "CARRIERS cadastrados!"
 puts "-----------------------------------------"
+puts "Cadastrando PRICES..."
+Price.create!(cubic_start: 0.001, cubic_end: 0.500, weight_start: 0, weight_end: 10000, value_kilometer_cents: 50, shipping_company_id: 1)
+Price.create!(cubic_start: 0.001, cubic_end: 0.500, weight_start: 10000, weight_end: 30000, value_kilometer_cents: 80, shipping_company_id: 1)
+Price.create!(cubic_start: 0.001, cubic_end: 0.500, weight_start: 30000, weight_end: 9999999, value_kilometer_cents: 100, shipping_company_id: 1)
+Price.create!(cubic_start: 0.501, cubic_end: 1.000, weight_start: 0, weight_end: 10000, value_kilometer_cents: 75, shipping_company_id: 1)
+puts "PRICES cadastrados!"
+puts "-----------------------------------------"

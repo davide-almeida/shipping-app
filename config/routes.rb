@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   namespace :shipping_company do
     root to: "dashboard#index"
     resources :carriers, only: [:index, :new, :create, :show, :edit, :update]
+    resources :prices, only: [:index, :new, :create, :show, :edit, :update]
   end
 end

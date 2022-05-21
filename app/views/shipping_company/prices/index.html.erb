@@ -1,0 +1,37 @@
+<h1 class="mt-4 mb-4">Preços</h1>
+<% if @prices.empty? %>
+    <p><font color="red">Não existem preços cadastrados</font></p>
+<% end %>
+<div class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Cadastrar Preço", new_shipping_company_price_path, class:"btn btn-primary" %></li>
+</div>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Lista preços
+    </div>
+    <div class="card-body">
+        <table id="datatable" class="table table-bordered" style="">
+            <thead>
+            <tr>
+                <th>Metros cúbicos</th>
+                <th>Peso</th>
+                <th>valor por km</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @prices.each do |price| %>
+                <tr>
+                    <td>
+                        <%= link_to shipping_company_price_path(price.id) do %>
+                            <%= price.cubic_start %> a <%= price.cubic_end %>
+                        <% end %>
+                    </td>
+                    <td><%= price.weight_start/1000.0 %>kg a <%= price.weight_end/1000.0 %>kg</td>
+                    <td><%= humanized_money_with_symbol price.value_kilometer_cents/100.to_f %> por km</td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

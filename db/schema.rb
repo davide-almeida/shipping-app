@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_19_160654) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_20_164923) do
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -35,6 +35,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_19_160654) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["shipping_company_id"], name: "index_carriers_on_shipping_company_id"
+  end
+
+  create_table "prices", force: :cascade do |t|
+    t.float "cubic_start"
+    t.float "cubic_end"
+    t.integer "weight_start"
+    t.integer "weight_end"
+    t.integer "value_kilometer_cents"
+    t.integer "shipping_company_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shipping_company_id"], name: "index_prices_on_shipping_company_id"
   end
 
   create_table "shipping_companies", force: :cascade do |t|
@@ -65,5 +77,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_19_160654) do
   end
 
   add_foreign_key "carriers", "shipping_companies"
+  add_foreign_key "prices", "shipping_companies"
   add_foreign_key "users", "shipping_companies"
 end

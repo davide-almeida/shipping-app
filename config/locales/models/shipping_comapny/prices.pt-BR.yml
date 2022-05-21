@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      price: "Preços"
+    attributes:
+      price:
+        cubic_start: "Metros cúbicos mínimo"
+        cubic_end: "Metros cúbicos máximo"
+        weight_start: "Peso mínimo (gramas)"
+        weight_end: "Peso máximo (gramas)"
+        value_kilometer: "Valor por km"
+        shipping_company: "Transportadora"

@@ -1,0 +1,23 @@
+<h1 class="mt-4 mb-4">Preço</h1>
+
+<div class="card">
+  <div class="card-header">
+    <h2><%= humanized_money_with_symbol @price.value_kilometer_cents/100.to_f %> por km</h2>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><strong>Metros cúbicos: </strong><%= @price.cubic_start.to_f %> a <%= @price.cubic_end.to_f %></li>
+    <li class="list-group-item"><strong>Peso: </strong><%= @price.weight_start/1000 %>kg a <%= @price.weight_end/1000 %>kg</li>
+    <li class="list-group-item"><strong>Valor por km: </strong><%= humanized_money_with_symbol @price.value_kilometer_cents/100.to_f %> por km</li>
+  </ul>
+</div>
+
+<div class="mt-4 mb-4">
+  <div class="button-form-group">
+    <div class="button-form-item">
+      <%= link_to 'Editar', edit_shipping_company_price_path(@price.id), class:"btn btn-primary" %>
+    </div>
+    <div class="button-form-item">
+      <%= link_to 'Voltar', shipping_company_prices_path, class:"btn btn-secondary" %>
+    </div>
+  </div>
+</div>
