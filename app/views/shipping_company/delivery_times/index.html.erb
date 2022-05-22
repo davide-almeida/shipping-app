@@ -1,0 +1,35 @@
+<h1 class="mt-4 mb-4">Prazos de entrega</h1>
+<% if @delivery_times.empty? %>
+    <p><font color="red">Não existem prazos de entrega cadastrados</font></p>
+<% end %>
+<div class="breadcrumb">
+    <li class="buttons-item"><%= link_to "Cadastrar Prazo", new_shipping_company_delivery_time_path, class:"btn btn-primary" %></li>
+</div>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Lista prazos de entrega
+    </div>
+    <div class="card-body">
+        <table id="datatable" class="table table-bordered" style="">
+            <thead>
+            <tr>
+                <th>Kilometragem inicial e final</th>
+                <th>Dias úteis</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @delivery_times.each do |delivery_time| %>
+                <tr>
+                    <td>
+                        <%= link_to edit_shipping_company_delivery_time_path(delivery_time.id) do %>
+                            <%= delivery_time.range_start %>km a <%= delivery_time.range_end %>km
+                        <% end %>
+                    </td>
+                    <td><%= delivery_time.working_day %> dias úteis</td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

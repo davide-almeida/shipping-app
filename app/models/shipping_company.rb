@@ -7,5 +7,7 @@ class ShippingCompany < ApplicationRecord
     has_many :users
     has_many :carriers
     has_many :prices
+    has_many :delivery_times
+    
     has_one :price_setting
 end

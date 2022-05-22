@@ -1,0 +1,34 @@
+<% if @delivery_time.errors.any? %>
+    <p>Verifique os erros abaixo:</p>
+    <ul>
+        <% @delivery_time.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Formulário
+    </div>
+    <div class="card-body">
+        <%= form_with(model: [:shipping_company, @delivery_time]) do |f| %>
+            <div class="mb-3">
+                <%= f.label :range_start, class:"form-label" %>
+                <%= f.number_field :range_start, class:"form-control", step:"0.01" %>
+            </div>
+            <div class="mb-3">
+                <%= f.label :range_end, class:"form-label" %>
+                <%= f.number_field :range_end, class:"form-control", step:"0.01" %>
+            </div>
+            <div class="mb-3">
+                <%= f.label :working_day, class:"form-label" %>
+                <%= f.number_field :working_day, class:"form-control" %>
+            </div>
+            <div class="mb-3">
+                <%= f.submit 'Cadastrar', disable_with: 'Cadastrando...', class:"btn btn-primary" %>
+            </div>
+        <% end %>
+    </div>
+</div>

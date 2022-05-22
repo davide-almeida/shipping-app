@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      delivery_time: "Prazos de entrega"
+    attributes:
+      delivery_time:
+        range_start: "Kilometragem inicial"
+        range_end: "Kilometragem final"
+        working_day: "Dias úteis"
+        shipping_company_id: "Transportadora"

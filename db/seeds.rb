@@ -35,3 +35,7 @@ puts "Cadastrando PRICE_SETTINGS..."
 PriceSetting.create!(value_min_cents: 5000, shipping_company_id: 1)
 puts "PRICE_SETTINGS cadastrados!"
 puts "-----------------------------------------"
+puts "Cadastrando DELIVERY_TIMES..."
+DeliveryTime.create!(range_start: 0, range_end: 100, working_day: 4, shipping_company_id: 1)
+puts "DELIVERY_TIMES cadastrados!"
+puts "-----------------------------------------"
