@@ -10,4 +10,5 @@ class ShippingCompany < ApplicationRecord
     has_many :delivery_times
     
     has_one :price_setting
+
 end

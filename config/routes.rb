@@ -7,6 +7,12 @@ Rails.application.routes.draw do
     root to: "dashboard#index"
     resources :shipping_companies, only: [:index, :new, :create, :show, :edit, :update]
     resources :users, only: [:index, :new, :create, :show, :edit, :update]
+    # resources :search_prices, only: [:index] do
+      # get "search", on: :collection
+      # get "search", on: :member 
+    # end
+    get "search_prices", to: "search_prices#index"
+    get "search_prices/search", to: "search_prices#search"
   end
 
   namespace :shipping_company do

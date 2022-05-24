@@ -102,7 +102,7 @@ describe "Admin register a shipping company" do
     it "when CNPJ already exists" do
         # Arrange
         create_new_admin
-        ShippingCompany.create!(brand_name: "ACME LTDA", corporate_name: "ACME", domain: "acme@acme.com", registration_number: "xx.xxx.xxx/xxxx-xx", full_address: "123123", status: "Ativo")
+        ShippingCompany.create!(brand_name: "ACME LTDA", corporate_name: "ACME", domain: "acme.com", registration_number: "xx.xxx.xxx/xxxx-xx", full_address: "123123", status: "Ativo")
 
         # Act
         login_as(@new_admin, :scope => :admin)

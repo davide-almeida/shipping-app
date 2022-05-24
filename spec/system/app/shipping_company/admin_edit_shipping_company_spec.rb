@@ -4,7 +4,7 @@ describe "Admin update a shipping company" do
     it "with success" do
         # Arrange
         create_new_admin
-        ShippingCompany.create!(brand_name: "ACME LTDA", corporate_name: "ACME", domain: "acme@acme.com", registration_number: "xx.xxx.xxx/xxxx-xx", full_address: "123123", status: "Inativo")
+        ShippingCompany.create!(brand_name: "ACME LTDA", corporate_name: "ACME", domain: "acme.com", registration_number: "xx.xxx.xxx/xxxx-xx", full_address: "123123", status: "Ativo")
 
         # Act
         login_as(@new_admin, :scope => :admin)
@@ -20,13 +20,13 @@ describe "Admin update a shipping company" do
         # Assert
         expect(page).to have_content "Transportadora atualizada com sucesso."
         expect(page).to have_content "ACMEEE"
-        expect(page).to have_content "Inativo"
+        expect(page).to have_content "Ativo"
     end
 
     it "without some parameters" do
         # Arrange
         create_new_admin
-        ShippingCompany.create!(brand_name: "ACME LTDA", corporate_name: "ACME", domain: "acme@acme.com", registration_number: "xx.xxx.xxx/xxxx-xx", full_address: "123123", status: "Ativo")
+        ShippingCompany.create!(brand_name: "ACME LTDA", corporate_name: "ACME", domain: "acme.com", registration_number: "xx.xxx.xxx/xxxx-xx", full_address: "123123", status: "Ativo")
 
         # Act
         login_as(@new_admin, :scope => :admin)
@@ -53,7 +53,7 @@ describe "Admin update a shipping company" do
     it "typing more than 18 characters in the CNPJ field" do
         # Arrange
         create_new_admin
-        ShippingCompany.create!(brand_name: "ACME LTDA", corporate_name: "ACME", domain: "acme@acme.com", registration_number: "xx.xxx.xxx/xxxx-xx", full_address: "123123", status: "Ativo")
+        ShippingCompany.create!(brand_name: "ACME LTDA", corporate_name: "ACME", domain: "acme.com", registration_number: "xx.xxx.xxx/xxxx-xx", full_address: "123123", status: "Ativo")
 
         # Act
         login_as(@new_admin, :scope => :admin)
@@ -74,7 +74,7 @@ describe "Admin update a shipping company" do
     it "typing less than 18 characters in the CNPJ field" do
         # Arrange
         create_new_admin
-        ShippingCompany.create!(brand_name: "ACME LTDA", corporate_name: "ACME", domain: "acme@acme.com", registration_number: "xx.xxx.xxx/xxxx-xx", full_address: "123123", status: "Ativo")
+        ShippingCompany.create!(brand_name: "ACME LTDA", corporate_name: "ACME", domain: "acme.com", registration_number: "xx.xxx.xxx/xxxx-xx", full_address: "123123", status: "Ativo")
 
         # Act
         login_as(@new_admin, :scope => :admin)
@@ -95,8 +95,8 @@ describe "Admin update a shipping company" do
     it "when CNPJ already exists" do
         # Arrange
         create_new_admin
-        ShippingCompany.create!(brand_name: "ACME LTDA", corporate_name: "ACME", domain: "acme@acme.com", registration_number: "xx.xxx.xxx/xxxx-xx", full_address: "123123", status: "Ativo")
-        ShippingCompany.create!(brand_name: "ACME LTDA", corporate_name: "TESTE", domain: "acme@acme.com", registration_number: "xx.xxx.xxx/xxxx123", full_address: "123123", status: "Ativo")
+        ShippingCompany.create!(brand_name: "ACME LTDA", corporate_name: "ACME", domain: "acme.com", registration_number: "xx.xxx.xxx/xxxx-xx", full_address: "123123", status: "Ativo")
+        ShippingCompany.create!(brand_name: "ACME LTDA", corporate_name: "TESTE", domain: "acme.com", registration_number: "xx.xxx.xxx/xxxx123", full_address: "123123", status: "Ativo")
 
         # Act
         login_as(@new_admin, :scope => :admin)

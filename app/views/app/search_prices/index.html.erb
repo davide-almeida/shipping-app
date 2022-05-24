@@ -1,0 +1,45 @@
+<h1 class="mt-4 mb-4">Buscar Preços</h1>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-search me-1"></i>
+        Formulário de busca
+    </div>
+    <div class="card-body">
+        <%= form_with(url: app_search_prices_search_path, method: :get) do |f| %>
+            <div class="mb-3">
+                <h5>Dados do item a ser transportado:</h5>
+            </div>
+            <div class="mb-3 row">
+                <div class="col">
+                    <%= f.label :width, class:"form-label" %>
+                    <%= f.number_field :width, class:"form-control", step:"0.01" %>
+                </div>
+                <div class="col">
+                    <%= f.label :height, class:"form-label" %>
+                    <%= f.number_field :height, class:"form-control", step:"0.01" %>
+                </div>
+                <div class="col">
+                    <%= f.label :depth, class:"form-label" %>
+                    <%= f.number_field :depth, class:"form-control", step:"0.01" %>
+                </div>
+                <div class="col">
+                    <%= f.label :weight, class:"form-label" %>
+                    <%= f.number_field :weight, class:"form-control", step:"0.01" %>
+                </div>
+            </div>
+            <div class="mb-3">
+                <h5>Dados da distância a ser percorrida:</h5>
+            </div>
+            <div class="mb-3 row">
+                <div class="col">
+                    <%= f.label :range, class:"form-label" %>
+                    <%= f.number_field :range, class:"form-control", step:"0.01" %>
+                </div>
+            </div>
+            <div class="mb-3">
+                <%= f.submit 'Buscar', disable_with: 'Buscando...', class:"btn btn-primary" %>
+            </div>
+        <% end %>
+    </div>
+</div>

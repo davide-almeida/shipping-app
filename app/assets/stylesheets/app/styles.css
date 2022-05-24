@@ -11712,3 +11712,7 @@ body {
 .buttons-item {
   padding-right: 0.5%;
 }
+
+.search-prices-result {
+  background-color: #F7F7F7 !important;
+}

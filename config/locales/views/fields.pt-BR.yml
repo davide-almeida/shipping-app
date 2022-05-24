@@ -1,0 +1,14 @@
+pt-BR:
+  brand_name: "Nome fantasia"
+  corporate_name: "Razão social"
+  domain: "Domínio"
+  registration_number: "CNPJ"
+  full_address: "Endereço"
+  status: "Status"
+  helpers:
+    label:
+      width: "Largura"
+      height: "Altura"
+      depth: "Profundidade"
+      weight: "Peso"
+      range: "Distância a ser percorrida (km)"
