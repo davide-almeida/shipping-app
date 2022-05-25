@@ -45,5 +45,8 @@ group :development do
   # better errors - https://github.com/BetterErrors/better_errors
   gem "better_errors"
   gem "binding_of_caller"
+
+  # https://github.com/voormedia/rails-erd - command: bundle exec erd
+  gem 'rails-erd'
 end
 

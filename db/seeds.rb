@@ -16,10 +16,6 @@ puts "-----------------------------------------"
 # puts "SHIPPING_COMPANIES cadastrados!"
 # puts "-----------------------------------------"
 
-
-
-
-
 # create 3 shipping_companies
 ShippingCompany.create!(brand_name: "ShippingCompany 1 LTDA", corporate_name: "ShippingCompany 1", domain: "shippingcompany1.com", registration_number: "xx.xxx.xxx/ship-01", full_address: "Av Shipping Company 1, 111", status: "Ativo")
 ShippingCompany.create!(brand_name: "ShippingCompany 2 LTDA", corporate_name: "ShippingCompany 2", domain: "shippingcompany2.com", registration_number: "xx.xxx.xxx/ship-02", full_address: "Av Shipping Company 2, 112", status: "Ativo")
@@ -65,12 +61,6 @@ DeliveryTime.create!(range_start: 191, range_end: 300, working_day: 16, shipping
 DeliveryTime.create!(range_start: 0, range_end: 110, working_day: 4, shipping_company_id: 3)
 DeliveryTime.create!(range_start: 111, range_end: 210, working_day: 8, shipping_company_id: 3)
 DeliveryTime.create!(range_start: 211, range_end: 500, working_day: 20, shipping_company_id: 3)
-
-
-
-
-
-
 
 puts "Cadastrando USERS..."
 User.create!(firstname: "User", lastname: "Transportadora", email: "transportadora@shippingcompany1.com", password: "123123", password_confirmation: "123123", shipping_company_id: 1)
