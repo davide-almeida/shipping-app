@@ -1,15 +1,13 @@
 class App::SearchPricesController < AppController
+    include ApplicationHelper
+
     def index
     end
 
     def search
         # Validation data
         @search_errors = []
-        params.each do |key, value|
-            # puts "======="
-            # puts "#{key} = #{value}"
-            # puts "======="
-            
+        params.each do |key, value|           
             case
             when key == "weight"
                 check_present(key)
@@ -52,6 +50,18 @@ class App::SearchPricesController < AppController
                                     .where('range_start <= ? AND range_end >= ?', @range, @range)
                                     .uniq
 
+            # create log (SearchPriceLog)
+            # raise
+            @shipping_companies.each do |shipping_company|
+                # raise
+                SearchPriceLog.create!(
+                    brand_name: shipping_company.brand_name, corporate_name: shipping_company.corporate_name,
+                    domain: shipping_company.domain, registration_number: shipping_company.registration_number, cubic_meter: @cubic_meters.to_f,
+                    value_kilometer_cents: (find_price(shipping_company, @cubic_meters, @weight)*100).to_i, value_min_cents: shipping_company.price_setting.value_min_cents,
+                    deadline: find_working_days(shipping_company, @range), search_date: Time.now, range: @range,
+                    total_value_cents: value_total(@range, find_price(shipping_company, @cubic_meters, @weight), shipping_company.price_setting.value_min_cents)
+                )
+            end
         end
     end
 

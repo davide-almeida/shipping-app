@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_22_215441) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_25_204905) do
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -65,6 +65,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_22_215441) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["shipping_company_id"], name: "index_prices_on_shipping_company_id"
+  end
+
+  create_table "search_price_logs", force: :cascade do |t|
+    t.string "brand_name"
+    t.string "corporate_name"
+    t.string "domain"
+    t.string "registration_number"
+    t.float "cubic_meter"
+    t.integer "value_kilometer_cents"
+    t.integer "value_min_cents"
+    t.integer "deadline"
+    t.integer "total_value_cents"
+    t.float "range"
+    t.datetime "search_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "shipping_companies", force: :cascade do |t|

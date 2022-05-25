@@ -22,9 +22,9 @@ ShippingCompany.create!(brand_name: "ShippingCompany 2 LTDA", corporate_name: "S
 ShippingCompany.create!(brand_name: "ShippingCompany 3 LTDA", corporate_name: "ShippingCompany 3", domain: "shippingcompany3.com", registration_number: "xx.xxx.xxx/ship-03", full_address: "Av Shipping Company 3, 113", status: "Ativo")
 
 # create 1 carries for each shipping_company
-Carrier.create!(license_plate: "MER-1111", brand: "Mercedes", code_model: "TRUCK-MERC-11", manufact_year: 2015, weight: 5000, shipping_company_id: 1)
-Carrier.create!(license_plate: "FOR-1212", brand: "Ford", code_model: "TRUCK-FORD-12", manufact_year: 2016, weight: 5000, shipping_company_id: 2)
-Carrier.create!(license_plate: "VOL-1313", brand: "Volkswagen", code_model: "TRUCK-VOLK-13", manufact_year: 2017, weight: 5000, shipping_company_id: 3)
+Carrier.create!(license_plate: "MER-1111", brand: "Mercedes", code_model: "TRUCK-MERC-11", manufact_year: 2015, weight: 500000, shipping_company_id: 1)
+Carrier.create!(license_plate: "FOR-1212", brand: "Ford", code_model: "TRUCK-FORD-12", manufact_year: 2016, weight: 500000, shipping_company_id: 2)
+Carrier.create!(license_plate: "VOL-1313", brand: "Volkswagen", code_model: "TRUCK-VOLK-13", manufact_year: 2017, weight: 500000, shipping_company_id: 3)
 
 # create 4 prices for each shipping_company
 #1

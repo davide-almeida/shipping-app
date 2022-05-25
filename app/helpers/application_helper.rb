@@ -22,15 +22,20 @@ module ApplicationHelper
     def value_total(km, price_per_km, default_price)
         result = km.to_f * price_per_km.to_f
 
+        default_price = default_price/100.to_f
         if result < default_price
             result = default_price
+            # raise
         end
+        result
+        # raise
     end
 
     # working days
     def find_working_days(shipping_company, range)
         shipping_company.delivery_times.where('range_start <= ? AND range_end >= ?', @range, @range).order(:working_day).first.working_day
     end
+    
     
     
 end

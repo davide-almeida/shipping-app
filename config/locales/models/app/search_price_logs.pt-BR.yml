@@ -1,0 +1,16 @@
+pt-BR:
+  activerecord:
+    models:
+      search_price_log: "Histórico de buscas de preço"
+    attributes:
+      search_price_log:
+        brand_name: "Nome fantasia"
+        corporate_name: "Razão social"
+        domain: "Domínio"
+        registration_number: "CNPJ"
+        cubic_meter: "Metros cúbicos"
+        value_kilometer: "Valor por km"
+        value_min: "Valor mínimo"
+        deadline: "Prazo de entrega"
+        total_value: "Valor total"
+        search_date: "Data da busca"

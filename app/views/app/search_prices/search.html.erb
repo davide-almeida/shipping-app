@@ -1,5 +1,10 @@
 <h1 class="mt-4 mb-4">Buscar Preços</h1>
 
+<div class="breadcrumb">
+    <li class="buttons-item"><%= link_to "Buscar preços", app_search_prices_path, class:"btn btn-primary" %></li>
+    <li class="buttons-item"><%= link_to "Histórico de buscas", app_search_price_logs_path, class:"btn btn-info" %></li>
+</div>
+
 <div class="card mb-4">
     <div class="card-header">
         <i class="fas fa-search me-1"></i>
@@ -13,6 +18,9 @@
                         <ul class="nav nav-pills card-header-pills">
                             <li class="nav-item">
                                 <%= shipping_company.brand_name %>
+                                <%# if shipping_company.brand_name == "ShippingCompany 2 LTDA" %>
+                                    <%# raise %>
+                                <%# end %>
                             </li>
                         </ul>
                     </div>
@@ -23,10 +31,11 @@
                             <li class="list-group-item"><strong><%= t("registration_number") %>: </strong><%= shipping_company.registration_number %></li>
                             <li class="list-group-item"><strong>Metros Cúbicos: </strong><%= @cubic_meters.round(5) %> m³</li>
                             <li class="list-group-item"><strong>Valor por Km: </strong><%= humanized_money_with_symbol find_price(shipping_company, @cubic_meters, @weight) %></li>
+                            <li class="list-group-item"><strong>Distância: </strong><%= @range %> km</li>
                             <li class="list-group-item"><strong>Valor mínimo cobrado: </strong><%= humanized_money_with_symbol shipping_company.price_setting.value_min_cents/100.to_f %></li>
                             <div class="search-prices-result">
                                 <li class="list-group-item search-prices-result"><strong>Prazo de entrega: </strong><%= find_working_days(shipping_company, @range) %> dias úteis</li>
-                                <li class="list-group-item search-prices-result"><strong>Valor Total: </strong><%= humanized_money_with_symbol value_total(@range, find_price(shipping_company, @cubic_meters, @weight), shipping_company.price_setting.value_min_cents/100.to_f) %></li>
+                                <li class="list-group-item search-prices-result"><strong>Valor Total: </strong><%= humanized_money_with_symbol value_total(@range, find_price(shipping_company, @cubic_meters, @weight), shipping_company.price_setting.value_min_cents) %></li>
                             </div>
                         </ul>
                     </div>

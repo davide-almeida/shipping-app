@@ -1,0 +1,49 @@
+<h1 class="mt-4 mb-4">Histórico de buscas</h1>
+<% if @search_price_logs.empty? %>
+    <p><font color="red">Não há registros de buscas.</font></p>
+<% end %>
+<div class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to "Buscar preços", app_search_prices_path, class:"btn btn-primary" %></li>
+</div>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Lista histórico de buscas
+    </div>
+    <div class="card-body">
+        <table id="datatable" class="table table-bordered" style="">
+            <thead>
+            <tr>
+                <th>Nome Fantasia</th>
+                <th>Razão Social</th>
+                <th>Domínio</th>
+                <th>CNPJ</th>
+                <th>Metros cúbicos</th>
+                <th>Valor por km</th>
+                <th>Valor mínimo</th>
+                <th>Prazo de entrega</th>
+                <th>Distância (km)</th>
+                <th>Valor total</th>
+                <th>Data da busca</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @search_price_logs.each do |search_price_log| %>
+                <tr>
+                    <td><%= search_price_log.brand_name %></td>
+                    <td><%= search_price_log.corporate_name %></td>
+                    <td><%= search_price_log.domain %></td>
+                    <td><%= search_price_log.registration_number %></td>
+                    <td><%= search_price_log.cubic_meter %> m³</td>
+                    <td><%= humanized_money_with_symbol search_price_log.value_kilometer %></td>
+                    <td><%= humanized_money_with_symbol search_price_log.value_min %></td>
+                    <td><%= search_price_log.deadline %> dias úteis</td>
+                    <td><%= search_price_log.range %> km</td>
+                    <td><%= humanized_money_with_symbol search_price_log.total_value_cents %></td>
+                    <td><%= search_price_log.search_date.strftime("%d/%m/%Y - %H:%M") %></td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
