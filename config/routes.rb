@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     # end
     get "search_prices", to: "search_prices#index"
     get "search_prices/search", to: "search_prices#search"
-    resources :search_price_logs, only: [:index, :show]
+    resources :search_price_logs, only: [:index]
   end
 
   namespace :shipping_company do
