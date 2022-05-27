@@ -1,0 +1,60 @@
+<% if @order.errors.any? %>
+    <p>Verifique os erros abaixo:</p>
+    <ul>
+        <% @order.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<h1 class="mt-4 mb-4">Ordem de serviço</h1>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Formulário
+    </div>
+    <div class="card-body">
+        <%= form_with(model: [:app, :shipping_company, @order]) do |f| %>
+            <h5>Dados para retirada do produto</h5>
+            <div class="mb-3">
+                <%= f.label :full_address, class:"form-label" %>
+                <%= f.text_field :full_address, class:"form-control" %>
+            </div>
+            <%= f.hidden_field :width, :value => params[:width].to_f %>
+            <%= f.hidden_field :height, :value => params[:height].to_f %>
+            <%= f.hidden_field :depth, :value => params[:depth].to_f %>
+            <%= f.hidden_field :weight, :value => params[:weight].to_i/1000.to_f %>
+            <%= f.hidden_field :range, :value => params[:range].to_f %>
+            <%= f.hidden_field :total_value_cents, :value => ((params[:total_value_cents].to_f)*100).to_i %>
+            
+            <h5>Dados para entrega do produto</h5>
+            <%= f.fields_for :receiver do |r| %>
+                <div class="mb-3 row">
+                    <div class="col">
+                        <%= r.label :first_name, class:"form-label" %>
+                        <%= r.text_field :first_name, class:"form-control" %>
+                    </div>
+                    <div class="col">
+                        <%= r.label :last_name, class:"form-label" %>
+                        <%= r.text_field :last_name, class:"form-control" %>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <div class="col">
+                        <%= r.label :registration_code, class:"form-label" %>
+                        <%= r.text_field :registration_code, class:"form-control" %>
+                    </div>
+                    <div class="col">
+                        <%= r.label :full_address, class:"form-label" %>
+                        <%= r.text_field :full_address, class:"form-control" %>
+                    </div>
+                </div>
+            <% end %>
+
+            <div class="mb-3">
+                <%= f.submit 'Cadastrar', disable_with: 'Cadastrando...', class:"btn btn-primary" %>
+            </div>
+        <% end %>
+    </div>
+</div>

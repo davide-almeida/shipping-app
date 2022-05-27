@@ -12,10 +12,6 @@ class App::UsersController < AppController
   
     def create
       @user = User.new(user_params)
-      
-      
-
-      # raise
       if @user.save
         redirect_to app_users_path, notice: "O cadastro #{@user.email} foi realizado com sucesso!"
       else

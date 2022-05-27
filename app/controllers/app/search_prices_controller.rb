@@ -2,6 +2,7 @@ class App::SearchPricesController < AppController
     include ApplicationHelper
 
     def index
+        #render search form
     end
 
     def search
@@ -51,9 +52,7 @@ class App::SearchPricesController < AppController
                                     .uniq
 
             # create log (SearchPriceLog)
-            # raise
             @shipping_companies.each do |shipping_company|
-                # raise
                 SearchPriceLog.create!(
                     brand_name: shipping_company.brand_name, corporate_name: shipping_company.corporate_name,
                     domain: shipping_company.domain, registration_number: shipping_company.registration_number, cubic_meter: @cubic_meters.to_f,

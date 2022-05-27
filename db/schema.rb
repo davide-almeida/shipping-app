@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_25_204905) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_26_203704) do
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -47,6 +47,22 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_204905) do
     t.index ["shipping_company_id"], name: "index_delivery_times_on_shipping_company_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer "status"
+    t.string "code"
+    t.string "full_address"
+    t.float "width"
+    t.float "height"
+    t.float "depth"
+    t.float "weight"
+    t.float "range"
+    t.integer "total_value_cents"
+    t.integer "shipping_company_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shipping_company_id"], name: "index_orders_on_shipping_company_id"
+  end
+
   create_table "price_settings", force: :cascade do |t|
     t.integer "value_min_cents"
     t.integer "shipping_company_id", null: false
@@ -65,6 +81,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_204905) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["shipping_company_id"], name: "index_prices_on_shipping_company_id"
+  end
+
+  create_table "receivers", force: :cascade do |t|
+    t.string "full_address"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "registration_code"
+    t.integer "order_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_receivers_on_order_id"
   end
 
   create_table "search_price_logs", force: :cascade do |t|
@@ -112,7 +139,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_204905) do
 
   add_foreign_key "carriers", "shipping_companies"
   add_foreign_key "delivery_times", "shipping_companies"
+  add_foreign_key "orders", "shipping_companies"
   add_foreign_key "price_settings", "shipping_companies"
   add_foreign_key "prices", "shipping_companies"
+  add_foreign_key "receivers", "orders"
   add_foreign_key "users", "shipping_companies"
 end

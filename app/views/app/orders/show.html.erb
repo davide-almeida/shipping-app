@@ -1,0 +1,39 @@
+<h1 class="mt-4 mb-4">Ordem de serviço</h1>
+
+<div class="card">
+  <div class="card-header">
+    <h5>Informações</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <div class="breadcrumb">
+      <h5>Dados do transporte</h5>
+    </div>
+    <li class="list-group-item"><strong>Código: </strong><%= @order.code %></li>
+    <li class="list-group-item"><strong>Status: </strong><%= @order.status %></li>
+    <li class="list-group-item"><strong>Transportadora: </strong><%= @order.shipping_company.corporate_name %></li>
+    <li class="list-group-item"><strong>Endereço de retirada: </strong><%= @order.full_address %></li>
+    <li class="list-group-item"><strong>Distância a ser percorrida: </strong><%= @order.range %> km</li>
+    <li class="list-group-item"><strong>Largura: </strong><%= @order.width %></li>
+    <li class="list-group-item"><strong>Altura: </strong><%= @order.height %></li>
+    <li class="list-group-item"><strong>Profundidade: </strong><%= @order.depth %></li>
+    <li class="list-group-item"><strong>Peso: </strong><%= @order.weight %>kg</li>
+    <li class="list-group-item"><strong>Valor total: </strong><%= humanized_money_with_symbol @order.total_value %></li>
+    <div class="breadcrumb">
+      <h5>Dados do destinatário</h5>
+    </div>
+    <li class="list-group-item"><strong>Destinatário: </strong><%= @order.receiver.first_name %> <%= @order.receiver.last_name %></li>
+    <li class="list-group-item"><strong>RG: </strong><%= @order.receiver.registration_code %></li>
+    <li class="list-group-item"><strong>Endereço de entrega: </strong><%= @order.receiver.full_address %></li>
+  </ul>
+</div>
+
+<div class="mt-4 mb-4">
+  <div class="button-form-group">
+    <div class="button-form-item">
+      <%#= link_to 'Editar', edit_app_shipping_company_path(@shipping_company.id), class:"btn btn-primary" %>
+    </div>
+    <div class="button-form-item">
+      <%= link_to 'Voltar', app_orders_path, class:"btn btn-secondary" %>
+    </div>
+  </div>
+</div>

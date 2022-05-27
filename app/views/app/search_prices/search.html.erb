@@ -18,9 +18,6 @@
                         <ul class="nav nav-pills card-header-pills">
                             <li class="nav-item">
                                 <%= shipping_company.brand_name %>
-                                <%# if shipping_company.brand_name == "ShippingCompany 2 LTDA" %>
-                                    <%# raise %>
-                                <%# end %>
                             </li>
                         </ul>
                     </div>
@@ -35,14 +32,15 @@
                             <li class="list-group-item"><strong>Valor mínimo cobrado: </strong><%= humanized_money_with_symbol shipping_company.price_setting.value_min_cents/100.to_f %></li>
                             <div class="search-prices-result">
                                 <li class="list-group-item search-prices-result"><strong>Prazo de entrega: </strong><%= find_working_days(shipping_company, @range) %> dias úteis</li>
-                                <li class="list-group-item search-prices-result"><strong>Valor Total: </strong><%= humanized_money_with_symbol value_total(@range, find_price(shipping_company, @cubic_meters, @weight), shipping_company.price_setting.value_min_cents) %></li>
+                                <% @value_total_cents = value_total(@range, find_price(shipping_company, @cubic_meters, @weight), shipping_company.price_setting.value_min_cents) %>
+                                <li class="list-group-item search-prices-result"><strong>Valor Total: </strong><%= humanized_money_with_symbol @value_total_cents %></li>
                             </div>
                         </ul>
                     </div>
                     <div class="card-footer text-muted">
                         <ul class="nav nav-pills card-header-pills">
                             <li class="nav-item">
-                                <a href="#" class="btn btn-primary">Gerar ordem de serviço</a>
+                                <%= link_to "Gerar ordem de serviço", new_app_shipping_company_order_path(:shipping_company_id => shipping_company.id, :weight => @weight, :range => @range, :width => @width, :height => @height, :depth => @depth, :total_value_cents => @value_total_cents), class: "btn btn-primary"%>
                             </li>
                         </ul>
                     </div>

@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      receiver: "Destinatário"
+    attributes:
+      receiver:
+        full_address: "Endereço completo (destinatário)"
+        first_name: "Primeiro nome"
+        last_name: "Sobrenome"
+        registration_code: "RG"
+        order_id: "Ordem de serviço referente"
