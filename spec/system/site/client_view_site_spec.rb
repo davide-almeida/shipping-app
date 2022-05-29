@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "User visits the site" do
+describe "Client visits the site" do
     it "and see the homepage" do
         # Arrange
         # Act

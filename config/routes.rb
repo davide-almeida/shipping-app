@@ -30,4 +30,11 @@ Rails.application.routes.draw do
     end
     resources :order_routes, only: [:index, :show]
   end
+
+  namespace :site do
+    root to: "home#index"
+    resources :track_routes, only: [:index]
+    get "search", to: "track_routes#search"
+  end
+
 end

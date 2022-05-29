@@ -16,3 +16,4 @@ pt-BR:
       range: "Distância a ser percorrida (km)"
       carrier_id: "Veículo"
       carrier: "Veículo"
+      search_code: "Digite o código para rastreio"

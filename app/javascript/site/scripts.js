@@ -80,5 +80,3 @@ function fadeIn(el, display) {
         }
     })();
 };
-
-// console.log("entrou no scripts.js")

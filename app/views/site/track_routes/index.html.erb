@@ -3,22 +3,39 @@
 <nav id="sidebar-wrapper">
     <ul class="sidebar-nav">
         <li class="sidebar-brand"><a href="#page-top">Shipping App</a></li>
-        <li class="sidebar-nav-item"><a href="#page-top">Início</a></li>
+        <li class="sidebar-nav-item"><%= link_to "Início", root_path %></li>
         <li class="sidebar-nav-item"><%= link_to "Acesso Admin", app_root_path %></li>
+        <li class="sidebar-nav-item"><%= link_to "Acesso Transportadora", shipping_company_root_path %></li>
         <li class="sidebar-nav-item"><a href="#about">Sobre</a></li>
         <li class="sidebar-nav-item"><a href="#contact">Contato</a></li>
     </ul>
 </nav>
 <!-- Header-->
 <header class="masthead d-flex align-items-center">
-    <div class="bg-white-alpha">
-        <div class="container px-4 px-lg-5 text-center bg-white-font">
-            <h1 class="mb-1">Shipping App</h1>
-            <h3 class="mb-5"><em>Um sistema de entregas</em></h3>
-            <%= link_to "Acesso Transportadora", shipping_company_root_path, class:"btn btn-dark btn-xl" %>
-            <%= link_to "Rastreio", site_track_routes_path, class:"btn btn-primary btn-xl" %>
+ 
+    <div class="track-routes-form">
+        <div class="container px-4 px-lg-5 bg-white-font">
+            <div class="card">
+                <div class="card-header">
+                    <h3>ShippingApp - Rastreio</h3>
+                </div>
+                <div class="card-body">
+                    <%= form_with(url: site_search_path, method: :get) do |f| %>
+                        <div class="mb-3 row">
+                            <div class="col">
+                                <%= f.label :search_code, class:"form-label" %>
+                                <%= f.text_field :search_code, class:"form-control" %>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <%= f.submit 'Buscar', disable_with: 'Buscando...', class:"btn btn-primary" %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
         </div>
     </div>
+
 </header>
 <!-- About-->
 <section class="content-section bg-light" id="about">
@@ -39,12 +56,6 @@
 <footer class="footer text-center">
     <div class="container px-4 px-lg-5">
         <ul class="list-inline mb-5">
-            <%# <li class="list-inline-item">
-                <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-facebook"></i></a>
-            </li>
-            <li class="list-inline-item">
-                <a class="social-link rounded-circle text-white mr-3" href="#!"><i class="icon-social-twitter"></i></a>
-            </li> %>
             <li class="list-inline-item">
                 <a class="social-link rounded-circle text-white" href="https://github.com/davide-almeida/"><i class="icon-social-github"></i></a>
             </li>
