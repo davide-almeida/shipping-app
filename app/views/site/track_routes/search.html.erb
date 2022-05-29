@@ -41,6 +41,7 @@
                             <table id="datatable" class="table table-bordered" style="">
                                 <thead>
                                 <tr>
+                                    <th>Veículo</th>
                                     <th>Status da rota</th>
                                     <th>Local atual</th>
                                     <th>Última atualização</th>
@@ -49,6 +50,7 @@
                                 <tbody>
                                 <% @order_service.order_routes.each do |order_route| %>
                                     <tr>
+                                        <td><%= order_route.order_service.carrier.license_plate %></td>
                                         <td><%= order_route.status %></td>
                                         <td><%= order_route.current_location %></td>
                                         <td><%= order_route.current_time.strftime("%d/%m/%Y - %H:%M") %></td>
