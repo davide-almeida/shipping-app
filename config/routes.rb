@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :delivery_times, only: [:index, :new, :create, :edit, :update]
     resources :order_services, only: [:index, :show, :edit, :update] do
       resources :order_routes, only: [:new, :create]
+      patch 'refuse_order_service', on: :member
     end
     resources :order_routes, only: [:index, :show]
   end

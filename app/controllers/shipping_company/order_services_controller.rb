@@ -1,5 +1,5 @@
 class ShippingCompany::OrderServicesController < ShippingCompanyController
-    before_action :set_order_service, only: [:edit, :update, :show]
+    before_action :set_order_service, only: [:edit, :update, :show, :refuse_order_service]
 
     def index
        @order_services = current_user.shipping_company.order_services.all 
@@ -28,6 +28,13 @@ class ShippingCompany::OrderServicesController < ShippingCompanyController
             render :edit
         end
     end
+
+    def refuse_order_service
+        if @order_service.update(status: "Recusada")
+            redirect_to shipping_company_order_service_path(@order_service.id), notice: "A ordem de serviço foi recusada com sucesso."
+        end
+    end
+    
 
     private
     def cubic_meters_calc(x, y, z)

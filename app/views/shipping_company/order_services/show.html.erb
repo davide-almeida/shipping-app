@@ -38,5 +38,10 @@
     <div class="button-form-item">
       <%= link_to 'Voltar', shipping_company_order_services_path, class:"btn btn-secondary" %>
     </div>
+    <% if @order_service.status == "Pendente" %>
+        <div class="button-form-item">
+          <%= button_to 'Recusar', refuse_order_service_shipping_company_order_service_path(@order_service.id), class:"btn btn-danger", method: :patch %>
+        </div>
+    <% end %>
   </div>
 </div>
