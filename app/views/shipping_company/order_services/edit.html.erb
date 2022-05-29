@@ -1,0 +1,32 @@
+<% if @order_service.errors.any? %>
+    <p>Verifique os erros abaixo:</p>
+    <ul>
+        <% @order_service.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<h1 class="mt-4 mb-4">Aceitar ordem de serviço</h1>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Formulário
+    </div>
+    <% if @carriers.empty? %>
+        <p>Não há veículos cadastrados que suportem o peso do produto a ser transportado.</p>
+    <% else %>
+        <div class="card-body">
+            <%= form_with(model: [:shipping_company, @order_service]) do |f| %>
+                <div class="mb-3">
+                    <%= f.label :carrier_id, class:"form-label" %>
+                    <%= f.collection_select(:carrier_id, @carriers, :id, :license_plate, {include_blank: false}, {class:"form-select"}) %>
+                </div>
+                <div class="mb-3">
+                    <%= f.submit 'Vincular veículo e Aceitar', disable_with: 'Vinculando...', class:"btn btn-primary" %>
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+</div>

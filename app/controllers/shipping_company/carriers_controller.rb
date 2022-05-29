@@ -2,7 +2,7 @@ class ShippingCompany::CarriersController < ShippingCompanyController
     before_action :set_carrier, only: [:show, :edit, :update]
 
     def index
-        @carriers = ShippingCompany.find_by(domain: current_user.email.split("@").last).carriers.all
+        @carriers = current_user.shipping_company.carriers.all
     end
 
     def new
@@ -38,6 +38,9 @@ class ShippingCompany::CarriersController < ShippingCompanyController
     private
     def set_carrier
         @carrier = Carrier.find(params[:id])
+        if (@carrier.shipping_company_id != current_user.shipping_company_id)
+            redirect_to shipping_company_carriers_path, alert: "Você tentou acessar uma informação inexistente."
+        end
     end
 
     def carrier_params

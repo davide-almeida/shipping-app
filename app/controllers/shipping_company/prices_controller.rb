@@ -2,7 +2,7 @@ class ShippingCompany::PricesController < ShippingCompanyController
     before_action :set_price, only: [:show, :edit, :update]
 
     def index
-        @prices = ShippingCompany.find_by(domain: current_user.email.split("@").last).prices.all
+        @prices = current_user.shipping_company.prices.all
         @price_settings = current_user.shipping_company.price_setting
     end
 
@@ -39,6 +39,9 @@ class ShippingCompany::PricesController < ShippingCompanyController
     private
     def set_price
         @price = Price.find(params[:id])
+        if (@price.shipping_company_id != current_user.shipping_company_id)
+            redirect_to shipping_company_prices_path, alert: "Você tentou acessar uma informação inexistente."
+        end
     end
 
     def price_params

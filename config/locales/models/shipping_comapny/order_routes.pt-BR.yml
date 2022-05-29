@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      order_route: "Rotas"
+    attributes:
+      order_route:
+        current_location: "Localização (endereço)"
+        status: "Status"
+        current_time: "Data e hora"
+        order_service_id: "Ordem de serviço"

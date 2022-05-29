@@ -1,7 +1,7 @@
-<% if @order.errors.any? %>
+<% if @order_service.errors.any? %>
     <p>Verifique os erros abaixo:</p>
     <ul>
-        <% @order.errors.full_messages.each do |msg| %>
+        <% @order_service.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
         <% end %>
     </ul>
@@ -15,7 +15,7 @@
         Formulário
     </div>
     <div class="card-body">
-        <%= form_with(model: [:app, :shipping_company, @order]) do |f| %>
+        <%= form_with(model: [:app, :shipping_company, @order_service]) do |f| %>
             <h5>Dados para retirada do produto</h5>
             <div class="mb-3">
                 <%= f.label :full_address, class:"form-label" %>

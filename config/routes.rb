@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   namespace :app do
     root to: "dashboard#index"
     resources :shipping_companies, only: [:index, :new, :create, :show, :edit, :update] do
-      resources :orders, only: [:new, :create]
+      resources :order_services, only: [:new, :create]
     end
-    resources :orders, only: [:index, :show]
+    resources :order_services, only: [:index, :show]
     resources :users, only: [:index, :new, :create, :show, :edit, :update]
     # resources :search_prices, only: [:index] do
       # get "search", on: :collection
@@ -23,7 +23,11 @@ Rails.application.routes.draw do
     root to: "dashboard#index"
     resources :carriers, only: [:index, :new, :create, :show, :edit, :update]
     resources :prices, only: [:index, :new, :create, :show, :edit, :update]
-    resources :price_settings, only: [:index, :new, :create, :edit, :update]
+    resources :price_settings, only: [:new, :create, :edit, :update]
     resources :delivery_times, only: [:index, :new, :create, :edit, :update]
+    resources :order_services, only: [:index, :show, :edit, :update] do
+      resources :order_routes, only: [:new, :create]
+    end
+    resources :order_routes, only: [:index, :show]
   end
 end

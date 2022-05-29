@@ -40,7 +40,7 @@
                     <div class="card-footer text-muted">
                         <ul class="nav nav-pills card-header-pills">
                             <li class="nav-item">
-                                <%= link_to "Gerar ordem de serviço", new_app_shipping_company_order_path(:shipping_company_id => shipping_company.id, :weight => @weight, :range => @range, :width => @width, :height => @height, :depth => @depth, :total_value_cents => @value_total_cents), class: "btn btn-primary"%>
+                                <%= link_to "Gerar ordem de serviço", new_app_shipping_company_order_service_path(:shipping_company_id => shipping_company.id, :weight => @weight, :range => @range, :width => @width, :height => @height, :depth => @depth, :total_value_cents => @value_total_cents), class: "btn btn-primary"%>
                             </li>
                         </ul>
                     </div>

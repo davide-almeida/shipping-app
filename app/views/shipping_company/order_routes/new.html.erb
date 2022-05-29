@@ -1,0 +1,34 @@
+<% if @order_route.errors.any? %>
+    <p>Verifique os erros abaixo:</p>
+    <ul>
+        <% @order_route.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<h1 class="mt-4 mb-4">Atualizar Rota</h1>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Formulário
+    </div>
+    <div class="card-body">
+        <%= form_with(model: [:shipping_company, :order_service, @order_route]) do |f| %>
+            <div class="mb-3 row">
+                <div class="col">
+                    <%= f.label :current_location, class:"form-label" %>
+                    <%= f.text_field :current_location, class:"form-control" %>
+                </div>
+                <div class="col">
+                    <%= f.label :status, class:"form-label" %>
+                    <%= f.select(:status, options_for_order_route_status(@order_route.status), {:selected => "A caminho"}, {:class =>"form-select", include_blank: false})%>
+                </div>
+            </div>
+            <div class="mb-3">
+                <%= f.submit 'Cadastrar', disable_with: 'Cadastrando...', class:"btn btn-primary" %>
+            </div>
+        <% end %>
+    </div>
+</div>

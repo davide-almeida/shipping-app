@@ -35,6 +35,9 @@ class ShippingCompany::DeliveryTimesController < ShippingCompanyController
     private
     def set_delivery_time
         @delivery_time = DeliveryTime.find(params[:id])
+        if (@delivery_time.shipping_company_id != current_user.shipping_company_id)
+            redirect_to shipping_company_delivery_times_path, alert: "Você tentou acessar uma informação inexistente."
+        end
     end
 
     def delivery_time_params

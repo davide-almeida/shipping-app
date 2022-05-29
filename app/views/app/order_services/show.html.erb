@@ -1,0 +1,39 @@
+<h1 class="mt-4 mb-4">Ordem de serviço</h1>
+
+<div class="card">
+  <div class="card-header">
+    <h5>Informações</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <div class="breadcrumb">
+      <h5>Dados do transporte</h5>
+    </div>
+    <li class="list-group-item"><strong>Código: </strong><%= @order_service.code %></li>
+    <li class="list-group-item"><strong>Status: </strong><%= @order_service.status %></li>
+    <li class="list-group-item"><strong>Transportadora: </strong><%= @order_service.shipping_company.corporate_name %></li>
+    <li class="list-group-item"><strong>Endereço de retirada: </strong><%= @order_service.full_address %></li>
+    <li class="list-group-item"><strong>Distância a ser percorrida: </strong><%= @order_service.range %> km</li>
+    <li class="list-group-item"><strong>Largura: </strong><%= @order_service.width %></li>
+    <li class="list-group-item"><strong>Altura: </strong><%= @order_service.height %></li>
+    <li class="list-group-item"><strong>Profundidade: </strong><%= @order_service.depth %></li>
+    <li class="list-group-item"><strong>Peso: </strong><%= @order_service.weight %>kg</li>
+    <li class="list-group-item"><strong>Valor total: </strong><%= humanized_money_with_symbol @order_service.total_value %></li>
+    <div class="breadcrumb">
+      <h5>Dados do destinatário</h5>
+    </div>
+    <li class="list-group-item"><strong>Destinatário: </strong><%= @order_service.receiver.first_name %> <%= @order_service.receiver.last_name %></li>
+    <li class="list-group-item"><strong>RG: </strong><%= @order_service.receiver.registration_code %></li>
+    <li class="list-group-item"><strong>Endereço de entrega: </strong><%= @order_service.receiver.full_address %></li>
+  </ul>
+</div>
+
+<div class="mt-4 mb-4">
+  <div class="button-form-group">
+    <div class="button-form-item">
+      <%#= link_to 'Editar', edit_app_shipping_company_path(@shipping_company.id), class:"btn btn-primary" %>
+    </div>
+    <div class="button-form-item">
+      <%= link_to 'Voltar', app_order_services_path, class:"btn btn-secondary" %>
+    </div>
+  </div>
+</div>

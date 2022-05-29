@@ -1,0 +1,47 @@
+<h1 class="mt-4 mb-4">Ordens de serviço</h1>
+<% if @order_services.empty? %>
+    <p><font color="red">Não existem ordens de serviço cadastradas.</font></p>
+<% end %>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Lista ordens de serviço
+    </div>
+    <div class="card-body">
+        <table id="datatable" class="table table-bordered" style="">
+            <thead>
+            <tr>
+                <th>Código</th>
+                <th>Status</th>
+                <th>Endereço de retirada</th>
+                <th>Endereço do destinatário</th>
+                <th>Valor Total</th>
+                <th>Carro vinculado</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @order_services.each do |order_service| %>
+                <tr>
+                    <td>
+                        <%= link_to shipping_company_order_service_path(order_service.id) do %>
+                            <%= order_service.code %>
+                        <% end %>
+                    </td>
+                    <td><%= order_service.status %></td>
+                    <td><%= order_service.full_address %></td>
+                    <td><%= order_service.receiver.full_address %></td>
+                    <td><%= humanized_money_with_symbol order_service.total_value %></td>
+                    <td>
+                        <% if order_service.carrier.nil? %>
+                            Sem vínculo
+                        <% else %>
+                            <%= order_service.carrier.license_plate %>
+                        <% end %>
+                    </td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

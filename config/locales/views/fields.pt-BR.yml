@@ -5,6 +5,8 @@ pt-BR:
   registration_number: "CNPJ"
   full_address: "Endereço"
   status: "Status"
+  carrier_id: "Veículo"
+  carrier: "Veículo"
   helpers:
     label:
       width: "Largura"
@@ -12,3 +14,5 @@ pt-BR:
       depth: "Profundidade"
       weight: "Peso"
       range: "Distância a ser percorrida (km)"
+      carrier_id: "Veículo"
+      carrier: "Veículo"

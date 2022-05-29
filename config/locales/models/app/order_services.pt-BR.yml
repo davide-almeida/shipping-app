@@ -1,0 +1,8 @@
+pt-BR:
+  activerecord:
+    models:
+      order_service: "Ordem de serviço"
+    attributes:
+      order_service:
+        full_address: "Endereço completo"
+        carrier_id: "Veículo"

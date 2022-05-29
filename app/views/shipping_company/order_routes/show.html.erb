@@ -1,0 +1,65 @@
+<h1 class="mt-4 mb-4">Rota</h1>
+
+<% if @order_route.status != "Concluída" %>
+  <div class="breadcrumb">
+      <li class="buttons-item"><%= link_to "Atualizar Rota", new_shipping_company_order_service_order_route_path(@order_route.order_service_id), class:"btn btn-primary" %></li>
+  </div>
+<% end %>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Histórico da rota
+    </div>
+    <div class="card-body">
+      <table id="datatable" class="table table-bordered" style="">
+            <thead>
+            <tr>
+                <th>Status da rota</th>
+                <th>Local atual</th>
+                <th>Última atualização</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @order_routes.each do |order_route| %>
+                <tr>
+                    <td><%= order_route.status %></td>
+                    <td><%= order_route.current_location %></td>
+                    <td><%= order_route.current_time.strftime("%d/%m/%Y - %H:%M") %></td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+      </div>
+  </div>
+
+<div class="card">
+  <div class="card-header">
+    <h5>Dados do transporte</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><strong>Código: </strong><%= @order_route.order_service.code %></li>
+    <li class="list-group-item"><strong>Endereço de retirada: </strong><%= @order_route.order_service.full_address %></li>
+    <li class="list-group-item"><strong>Endereço do destinatário: </strong><%= @order_route.order_service.receiver.full_address %></li>
+    <li class="list-group-item"><strong>Veículo: </strong><%= @order_route.order_service.carrier.license_plate %></li>
+    <li class="list-group-item"><strong>Status da rota: </strong><%= @order_route.status %></li>
+    <li class="list-group-item"><strong>Local atual: </strong><%= @order_route.current_location %></li>
+    <li class="list-group-item"><strong>Última atualização: </strong><%= @order_route.current_time.strftime("%d/%m/%Y - %H:%M") %></li>
+  </ul>
+  <ul class="list-group list-group-flush">
+    <div class="breadcrumb">
+      <h5>Dados do destinatário</h5>
+    </div>
+    <li class="list-group-item"><strong>Destinatário: </strong><%= @order_route.order_service.receiver.first_name %> <%= @order_route.order_service.receiver.last_name %></li>
+    <li class="list-group-item"><strong>RG: </strong><%= @order_route.order_service.receiver.registration_code %></li>
+    <li class="list-group-item"><strong>Endereço de entrega: </strong><%= @order_route.order_service.receiver.full_address %></li>
+  </ul>
+</div>
+
+<div class="mt-4 mb-4">
+  <div class="button-form-group">
+    <div class="button-form-item">
+      <%= link_to 'Voltar', shipping_company_order_services_path, class:"btn btn-secondary" %>
+    </div>
+  </div>
+</div>

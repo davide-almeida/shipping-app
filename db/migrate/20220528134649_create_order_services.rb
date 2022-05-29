@@ -1,8 +1,8 @@
-class CreateOrders < ActiveRecord::Migration[7.0]
+class CreateOrderServices < ActiveRecord::Migration[7.0]
   def change
-    create_table :orders do |t|
+    create_table :order_services do |t|
       t.integer :status
-      t.string :code
+      t.integer :code
       t.string :full_address
       t.float :width
       t.float :height

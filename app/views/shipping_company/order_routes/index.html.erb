@@ -1,0 +1,45 @@
+<h1 class="mt-4 mb-4">Rotas</h1>
+<% if @order_services.empty? %>
+    <p><font color="red">Não existem rotas cadastradas</font></p>
+<% end %>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Lista rotas
+    </div>
+    <div class="card-body">
+        <table id="datatable" class="table table-bordered" style="">
+            <thead>
+            <tr>
+                <th>Código da ordem de serviço</th>
+                <th>Endereço de retirada</th>
+                <th>Endereço do destinatário</th>
+                <th>Status da ordem de serviço</th>
+                <th>Status da rota</th>
+                <th>Local atual</th>
+                <th>Última atualização</th>
+                <th>Veículo</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @order_services.each do |order_service| %>
+                <tr>
+                    <td>
+                        <%= link_to shipping_company_order_route_path(order_service.order_routes.last.id) do %>
+                            <%= order_service.code %>
+                        <% end %>
+                    </td>
+                    <td><%= order_service.full_address %></td>
+                    <td><%= order_service.receiver.full_address %></td>
+                    <td><%= order_service.status %></td>
+                    <td><%= order_service.order_routes.last.status %></td>
+                    <td><%= order_service.order_routes.last.current_location %></td>
+                    <td><%= order_service.order_routes.last.current_time.strftime("%d/%m/%Y - %H:%M") %></td>
+                    <td><%= order_service.carrier.license_plate %></td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

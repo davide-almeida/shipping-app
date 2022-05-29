@@ -1,5 +1,5 @@
 <h1 class="mt-4 mb-4">Ordens de serviço</h1>
-<% if @orders.empty? %>
+<% if @order_services.empty? %>
     <p><font color="red">Não existem ordens de serviço cadastradas</font></p>
 <% end %>
 <div class="card mb-4">
@@ -18,12 +18,12 @@
             </tr>
             </thead>
             <tbody>
-            <% @orders.each do |order| %>
+            <% @order_services.each do |order_service| %>
                 <tr>
-                    <td><%= link_to order.code, app_order_path(order) %></td>
-                    <td><%= order.status %></td>
-                    <td><%= order.shipping_company.brand_name %></td>
-                    <td><%= humanized_money_with_symbol order.total_value %></td>
+                    <td><%= link_to order_service.code, app_order_service_path(order_service) %></td>
+                    <td><%= order_service.status %></td>
+                    <td><%= order_service.shipping_company.brand_name %></td>
+                    <td><%= humanized_money_with_symbol order_service.total_value %></td>
                 </tr>
             <% end %>
             </tbody>

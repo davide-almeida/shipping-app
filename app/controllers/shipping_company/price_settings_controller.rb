@@ -1,19 +1,19 @@
 class ShippingCompany::PriceSettingsController < ShippingCompanyController
     before_action :set_price_setting, only: [:edit, :update]
 
-    def index
-        @price_settings = current_user.shipping_company.price_setting
-    end
-
     def new
-        @price_setting = PriceSetting.new
+        if current_user.shipping_company.price_setting.nil?
+            @price_setting = PriceSetting.new
+        else
+            redirect_to edit_shipping_company_price_setting_path(current_user.shipping_company.price_setting.id)
+        end
     end
 
     def create
         @price_setting = PriceSetting.new(price_setting_params)
         @price_setting.shipping_company_id = current_user.shipping_company.id
         if @price_setting.save
-            redirect_to new_shipping_company_price_setting_path, notice: 'Configuração de preço cadastrada com sucesso.'
+            redirect_to edit_shipping_company_price_setting_path(@price_setting.id), notice: 'Configuração de preço cadastrada com sucesso.'
         else
             flash.now[:alert] = "Não foi possível cadastrar a configuração de preço."
             render :new
@@ -35,6 +35,9 @@ class ShippingCompany::PriceSettingsController < ShippingCompanyController
     private
     def set_price_setting
         @price_setting = PriceSetting.find(params[:id])
+        if (@price_setting.shipping_company_id != current_user.shipping_company_id)
+            redirect_to edit_shipping_company_price_setting_path(current_user.shipping_company.price_setting.id), alert: "Você tentou acessar uma informação inexistente."
+        end
     end
 
     def price_setting_params
