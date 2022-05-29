@@ -21,3 +21,18 @@ Obs.: O arquivo de Readme, bem como todo o projeto, será constantemente atualiz
     Stylish Portfolio - Utilizado no site - https://startbootstrap.com/theme/stylish-portfolio
     SB Admin - Utilizado na aplicação - https://startbootstrap.com/template/sb-admin
 ```
+
+## Baixando e instalando a aplicação
+
+```bash
+    git clone git@github.com:davide-almeida/shipping-app.git
+    cd shipping-app
+    gem install bundler
+    gem install foreman
+    bundle install
+    yarn install
+    rails css:install:bootstrap
+    rails javascript:install:esbuild
+    rails db:create db:migrate db:seed
+    foreman start -f Procfile.dev
+```
