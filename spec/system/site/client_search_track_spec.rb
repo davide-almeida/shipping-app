@@ -20,6 +20,9 @@ describe "Cliente use the track_search form" do
         # Assert
         expect(page).to have_content "A caminho"
         expect(page).to have_content "Endereço teste de retirada, 1000"
+        expect(page).to have_content "Endereço do destinatário"
+        expect(page).to have_content "MER-1111"
+        expect(page).to have_content @order_service_code
     end
 
     it "with wrong code" do

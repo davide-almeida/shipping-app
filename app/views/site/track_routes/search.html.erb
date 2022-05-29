@@ -34,6 +34,20 @@
 
                     <div class="card mb-4">
                         <div class="card-header">
+                            <h5>Informações</h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+
+                            <li class="list-group-item"><strong>Código: </strong><%= @order_service.code %></li>
+                            <li class="list-group-item"><strong>Transportadora: </strong><%= @order_service.shipping_company.corporate_name %></li>
+                            <li class="list-group-item"><strong>Veículo (placa): </strong><%= @order_service.carrier.license_plate %></li>
+                            <li class="list-group-item"><strong>Endereço de saída: </strong><%= @order_service.full_address %></li>
+                            <li class="list-group-item"><strong>Endereço de entrega: </strong><%= @order_service.receiver.full_address %></li>
+                        </ul>
+                    </div>
+
+                    <div class="card mb-4">
+                        <div class="card-header">
                             <i class="fas fa-table me-1"></i>
                             Histórico da rota
                         </div>
@@ -41,7 +55,6 @@
                             <table id="datatable" class="table table-bordered" style="">
                                 <thead>
                                 <tr>
-                                    <th>Veículo</th>
                                     <th>Status da rota</th>
                                     <th>Local atual</th>
                                     <th>Última atualização</th>
@@ -50,7 +63,6 @@
                                 <tbody>
                                 <% @order_service.order_routes.each do |order_route| %>
                                     <tr>
-                                        <td><%= order_route.order_service.carrier.license_plate %></td>
                                         <td><%= order_route.status %></td>
                                         <td><%= order_route.current_location %></td>
                                         <td><%= order_route.current_time.strftime("%d/%m/%Y - %H:%M") %></td>
