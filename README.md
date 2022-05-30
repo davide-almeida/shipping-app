@@ -36,3 +36,14 @@ Obs.: O arquivo de Readme, bem como todo o projeto, será constantemente atualiz
     rails db:create db:migrate db:seed
     foreman start -f Procfile.dev
 ```
+
+## Como acessar
+Após utilizar o comando `foreman start -f Procfile.dev` a aplicação estará disponível no endereço `http://localhost:3000`.
+
+Para acessar como Administrador(a) navegue até o menu superior direito e click em `Acesso Admin` e utilize o login `davide@sistemadefrete.com.br` e senha `123123`. 
+
+Para acessar como usuário de uma transportadora navegue até botão `Acesso Transportadora` e utilize o login `transportadora@shippingcompany1.com` e senha `123123`.
+
+Para rastrear um pedido navegue até o botão `Rastreio` e informe o código de um rastreio. O pedido deve está previamente cadastrado e configurado utilizando os acessos anteriores.
+
+Obs.: Mais dados de acesso podem ser consultados ou adicionados no arquivo `seed.rb`.
