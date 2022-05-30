@@ -11,13 +11,6 @@ Este projeto foi desenvolvido durante o treinamento da `Campus Code - TreinaDev`
     Bootstrap 5.1.3
 ```
 
-## Layouts
-
-```bash
-    Stylish Portfolio - Utilizado no site - https://startbootstrap.com/theme/stylish-portfolio
-    SB Admin - Utilizado na aplicação - https://startbootstrap.com/template/sb-admin
-```
-
 ## Baixando e instalando a aplicação
 
 ```bash
@@ -76,3 +69,9 @@ Obs.: Mais dados de acesso podem ser consultados ou adicionados no arquivo `seed
     <img src="https://user-images.githubusercontent.com/85287720/170900988-0f8a8610-da86-4f8e-bc68-18a442abbf1a.png">
 </div>
 
+## Layouts
+
+```bash
+    Stylish Portfolio - Utilizado no site - https://startbootstrap.com/theme/stylish-portfolio
+    SB Admin - Utilizado na aplicação - https://startbootstrap.com/template/sb-admin
+```
