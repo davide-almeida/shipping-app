@@ -1,9 +1,5 @@
 # Shipping-app
-Este é um projeto que está sendo desenvolvido durante o treinamento da Campus Code - TreinaDev.
-
-Com este projeto tenho o objetivo adquirir mais conhecimento através da prática, além de ser utilizado como avaliação da primeira etapa do treinamento.
-
-Obs.: O arquivo de Readme, bem como todo o projeto, será constantemente atualizado até a conclusão do projeto. O prazo estimado de conclusão é até o dia 29/05/2022.
+Este projeto foi desenvolvido durante o treinamento da `Campus Code - TreinaDev`. E, com ele, tive a oportunidade de adquirir conhecimento e boas práticas de desenvolvimento baseadas em testes, além de ser utilizado como avaliação da primeira etapa do treinamento.
 
 ## Tecnologias utilizadas
 
@@ -47,3 +43,8 @@ Para acessar como usuário de uma transportadora navegue até botão `Acesso Tra
 Para rastrear um pedido navegue até o botão `Rastreio` e informe o código de um rastreio. O pedido deve está previamente cadastrado e configurado utilizando os acessos anteriores.
 
 Obs.: Mais dados de acesso podem ser consultados ou adicionados no arquivo `seed.rb`.
+
+## Modelo do banco de dados
+<div align="center">
+<img src="https://user-images.githubusercontent.com/85287720/170897498-6c40f59d-c873-4a16-a3be-41610329e4fb.png">
+</div>
