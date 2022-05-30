@@ -69,9 +69,22 @@ Obs.: Mais dados de acesso podem ser consultados ou adicionados no arquivo `seed
     <img src="https://user-images.githubusercontent.com/85287720/170900988-0f8a8610-da86-4f8e-bc68-18a442abbf1a.png">
 </div>
 
-## Layouts
+## Referências
 
+1. Layout
 ```bash
+    Bootstrap - https://getbootstrap.com/
     Stylish Portfolio - Utilizado no site - https://startbootstrap.com/theme/stylish-portfolio
     SB Admin - Utilizado na aplicação - https://startbootstrap.com/template/sb-admin
+```
+
+2. Gem's (não inclusas no Gemfile)
+```bash
+    foreman - https://github.com/ddollar/foreman
+```
+
+3. TreinaDev - Campus Code
+```bash
+    TreinaDev - https://treinadev.com.br/
+    Campus Code - https://www.campuscode.com.br/
 ```
